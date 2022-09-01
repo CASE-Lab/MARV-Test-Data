@@ -1,0 +1,251 @@
+rosbag2_bagfile_information:
+  version: 4
+  storage_identifier: sqlite3
+  relative_file_paths:
+    - rosbag2_2022_08_30-17_40_46_0.db3
+    - rosbag2_2022_08_30-17_40_46_1.db3
+    - rosbag2_2022_08_30-17_40_46_2.db3
+    - rosbag2_2022_08_30-17_40_46_3.db3
+    - rosbag2_2022_08_30-17_40_46_4.db3
+    - rosbag2_2022_08_30-17_40_46_5.db3
+    - rosbag2_2022_08_30-17_40_46_6.db3
+    - rosbag2_2022_08_30-17_40_46_7.db3
+    - rosbag2_2022_08_30-17_40_46_8.db3
+    - rosbag2_2022_08_30-17_40_46_9.db3
+    - rosbag2_2022_08_30-17_40_46_10.db3
+    - rosbag2_2022_08_30-17_40_46_11.db3
+    - rosbag2_2022_08_30-17_40_46_12.db3
+    - rosbag2_2022_08_30-17_40_46_13.db3
+    - rosbag2_2022_08_30-17_40_46_14.db3
+    - rosbag2_2022_08_30-17_40_46_15.db3
+    - rosbag2_2022_08_30-17_40_46_16.db3
+    - rosbag2_2022_08_30-17_40_46_17.db3
+    - rosbag2_2022_08_30-17_40_46_18.db3
+    - rosbag2_2022_08_30-17_40_46_19.db3
+    - rosbag2_2022_08_30-17_40_46_20.db3
+    - rosbag2_2022_08_30-17_40_46_21.db3
+    - rosbag2_2022_08_30-17_40_46_22.db3
+    - rosbag2_2022_08_30-17_40_46_23.db3
+    - rosbag2_2022_08_30-17_40_46_24.db3
+    - rosbag2_2022_08_30-17_40_46_25.db3
+    - rosbag2_2022_08_30-17_40_46_26.db3
+    - rosbag2_2022_08_30-17_40_46_27.db3
+    - rosbag2_2022_08_30-17_40_46_28.db3
+    - rosbag2_2022_08_30-17_40_46_29.db3
+    - rosbag2_2022_08_30-17_40_46_30.db3
+    - rosbag2_2022_08_30-17_40_46_31.db3
+    - rosbag2_2022_08_30-17_40_46_32.db3
+    - rosbag2_2022_08_30-17_40_46_33.db3
+    - rosbag2_2022_08_30-17_40_46_34.db3
+    - rosbag2_2022_08_30-17_40_46_35.db3
+    - rosbag2_2022_08_30-17_40_46_36.db3
+    - rosbag2_2022_08_30-17_40_46_37.db3
+    - rosbag2_2022_08_30-17_40_46_38.db3
+    - rosbag2_2022_08_30-17_40_46_39.db3
+    - rosbag2_2022_08_30-17_40_46_40.db3
+    - rosbag2_2022_08_30-17_40_46_41.db3
+    - rosbag2_2022_08_30-17_40_46_42.db3
+    - rosbag2_2022_08_30-17_40_46_43.db3
+    - rosbag2_2022_08_30-17_40_46_44.db3
+    - rosbag2_2022_08_30-17_40_46_45.db3
+    - rosbag2_2022_08_30-17_40_46_46.db3
+    - rosbag2_2022_08_30-17_40_46_47.db3
+    - rosbag2_2022_08_30-17_40_46_48.db3
+    - rosbag2_2022_08_30-17_40_46_49.db3
+    - rosbag2_2022_08_30-17_40_46_50.db3
+    - rosbag2_2022_08_30-17_40_46_51.db3
+    - rosbag2_2022_08_30-17_40_46_52.db3
+    - rosbag2_2022_08_30-17_40_46_53.db3
+    - rosbag2_2022_08_30-17_40_46_54.db3
+    - rosbag2_2022_08_30-17_40_46_55.db3
+    - rosbag2_2022_08_30-17_40_46_56.db3
+    - rosbag2_2022_08_30-17_40_46_57.db3
+    - rosbag2_2022_08_30-17_40_46_58.db3
+    - rosbag2_2022_08_30-17_40_46_59.db3
+    - rosbag2_2022_08_30-17_40_46_60.db3
+    - rosbag2_2022_08_30-17_40_46_61.db3
+    - rosbag2_2022_08_30-17_40_46_62.db3
+    - rosbag2_2022_08_30-17_40_46_63.db3
+    - rosbag2_2022_08_30-17_40_46_64.db3
+  duration:
+    nanoseconds: 108785643345
+  starting_time:
+    nanoseconds_since_epoch: 1661876006791299419
+  message_count: 1709558
+  topics_with_message_count:
+    - topic_metadata:
+        name: /marv/nav/sbg_current_pos
+        type: geometry_msgs/msg/Vector3
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 9494
+    - topic_metadata:
+        name: /marv/nav/sbg_angular_velocity
+        type: geometry_msgs/msg/Vector3
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 94935
+    - topic_metadata:
+        name: /marv/nav/sbg_velocity
+        type: geometry_msgs/msg/Vector3
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 94936
+    - topic_metadata:
+        name: /marv/nav/sbg_acceleration
+        type: geometry_msgs/msg/Vector3
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 94935
+    - topic_metadata:
+        name: /marv/sys/log/log1_tcu
+        type: marv_msgs/msg/Log1TCU
+        serialization_format: cdr
+        offered_qos_profiles: ""
+      message_count: 0
+    - topic_metadata:
+        name: /marv/nav/sbg_ekf_status
+        type: std_msgs/msg/Int8
+        serialization_format: cdr
+        offered_qos_profiles: ""
+      message_count: 759345
+    - topic_metadata:
+        name: /marv/sys/log/log1_pdu
+        type: marv_msgs/msg/Log1PDU
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 0
+    - topic_metadata:
+        name: /marv/nav/sbg_ref_pos
+        type: geometry_msgs/msg/Vector3
+        serialization_format: cdr
+        offered_qos_profiles: ""
+      message_count: 0
+    - topic_metadata:
+        name: /sbg/ekf_nav
+        type: sbg_driver/msg/SbgEkfNav
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 95336
+    - topic_metadata:
+        name: /marv/nav/sbg_velocity_magnitude
+        type: std_msgs/msg/Float32
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 94937
+    - topic_metadata:
+        name: /sbg/ekf_euler
+        type: sbg_driver/msg/SbgEkfEuler
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 95335
+    - topic_metadata:
+        name: /sbg/utc_time
+        type: sbg_driver/msg/SbgUtcTime
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 1906
+    - topic_metadata:
+        name: /marv/sys/status/heartbeat_ocu
+        type: marv_msgs/msg/Status
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 3754
+    - topic_metadata:
+        name: /marv/sys/status/heartbeat_ucu
+        type: marv_msgs/msg/Status
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 3795
+    - topic_metadata:
+        name: /marv/nav/sbg_ref_pos_state
+        type: std_msgs/msg/Bool
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 1901
+    - topic_metadata:
+        name: /marv/nav/sbg_pose
+        type: geometry_msgs/msg/PoseWithCovariance
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 94936
+    - topic_metadata:
+        name: /marv/sys/ctrl/scenario_state
+        type: std_msgs/msg/Int8
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 18992
+    - topic_metadata:
+        name: /marv/sys/status/heartbeat_rcu
+        type: marv_msgs/msg/Status
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 3793
+    - topic_metadata:
+        name: /marv/sys/log/log1_ncu
+        type: marv_msgs/msg/Log1NCU
+        serialization_format: cdr
+        offered_qos_profiles: ""
+      message_count: 55679
+    - topic_metadata:
+        name: /sbg/imu_data
+        type: sbg_driver/msg/SbgImuData
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 95335
+    - topic_metadata:
+        name: /marv/sys/status/heartbeat_ncu
+        type: marv_msgs/msg/Status
+        serialization_format: cdr
+        offered_qos_profiles: ""
+      message_count: 3712
+    - topic_metadata:
+        name: /marv/sys/status/logging_marker
+        type: std_msgs/msg/Int8
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 3843
+    - topic_metadata:
+        name: /marv/sys/status/current_scenario
+        type: std_msgs/msg/String
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 3799
+    - topic_metadata:
+        name: /marv/sys/status/heartbeat_acu
+        type: marv_msgs/msg/Status
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 18997
+    - topic_metadata:
+        name: /marv/sys/ctrl/cmd_steering
+        type: marv_msgs/msg/CmdSteering
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 0
+    - topic_metadata:
+        name: /marv/sys/status/heartbeat_tcu
+        type: marv_msgs/msg/Status
+        serialization_format: cdr
+        offered_qos_profiles: ""
+      message_count: 3770
+    - topic_metadata:
+        name: /marv/sys/status/state_12V_auto
+        type: std_msgs/msg/Bool
+        serialization_format: cdr
+        offered_qos_profiles: ""
+      message_count: 18393
+    - topic_metadata:
+        name: /marv/sys/log/log2_tcu
+        type: marv_msgs/msg/Log2TCU
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 1\n  depth: 10\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 37700
+    - topic_metadata:
+        name: /marv/sys/status/heartbeat_pdu
+        type: marv_msgs/msg/Status
+        serialization_format: cdr
+        offered_qos_profiles: ""
+      message_count: 0
+  compression_format: ""
+  compression_mode: ""

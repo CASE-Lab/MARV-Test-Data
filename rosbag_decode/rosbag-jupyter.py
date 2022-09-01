@@ -1,4 +1,4 @@
-# Script for handling ros2 bag file generated from the WaveRunner system
+# Script for handling ros2 bag file generated from the marv system
 # To be run interactively in VS Code Jupypter notebook:
 # https://code.visualstudio.com/docs/python/jupyter-support-py
 # Can also be converted to regular Jupyter notebook
@@ -34,7 +34,10 @@ dirname = Path(os.path.dirname(os.path.abspath(__file__))).parent.absolute()
 # rosbag2_2021_07_20-17_23_31 (bad data - drfiting)
 # rosbag2_2021_07_20-17_32_20 (good looking Z WP drive)
 # rosbag2_2021_07_20-17_12_08
-rosbag_path = os.path.join(dirname, 'logs_2021','rosbag2_2021_07_20-17_12_08')
+#rosbag_path = os.path.join(dirname, 'logs_2021','rosbag2_2021_07_20-17_12_08')
+rosbag_path = os.path.join(dirname, 'logs_2022','rosbag2_2022_08_30-17_40_46')
+
+
 
 # %% Loading message defenitions
 import os
@@ -42,7 +45,7 @@ from pathlib import Path
 
 dirname = Path(os.path.dirname(os.path.abspath(__file__))).parent.absolute()
 
-sbg_msg_path = dirname / "logs_2021/ros_msg_def/sbg_ros2_msg"
+sbg_msg_path = dirname / "logs_2022/ros_msg_def/sbg_ros2_msg"
 sbg_msg_prefix = "sbg_driver/msg/"
 
 sbg_pathlist = Path(sbg_msg_path).rglob('*.msg')
@@ -55,8 +58,8 @@ for path in sbg_pathlist:
 sbg_msg_dict['msg/SbgEkfStatus'] = sbg_msg_dict[sbg_msg_prefix + 'SbgEkfStatus']
 sbg_msg_dict['msg/SbgImuStatus'] = sbg_msg_dict[sbg_msg_prefix + 'SbgImuStatus']
 
-wr_msg_path = dirname / "logs_2021/ros_msg_def/waverunner_msgs"
-wr_msg_prefix = "waverunner_msgs/msg/"
+wr_msg_path = dirname / "logs_2022/ros_msg_def/marv_msgs"
+wr_msg_prefix = "marv_msgs/msg/"
 wr_pathlist = Path(wr_msg_path).rglob('*.msg')
 
 wr_msg_dict = {}
@@ -86,13 +89,13 @@ df_plt = df_ekf_nav.resample('40ms').mean()
 
 
 # %% aps and rps values
-tcu_prefix = 'tcu_log1/'
-df_log2_tcu = rb.topic2df(rosbag_path, '/waverunner/sys/log/log1_tcu',[], tcu_prefix)
-df_plt[tcu_prefix + 'throttle(aps)'] = df_log2_tcu[tcu_prefix + 'aps_out'].resample('40ms').mean()
+tcu_prefix = 'tcu_log2/'
+df_log2_tcu = rb.topic2df(rosbag_path, '/marv/sys/log/log2_tcu',[], tcu_prefix)
+df_plt[tcu_prefix + 'throttle(aps)'] = df_log2_tcu[tcu_prefix + 'aps_in'].resample('40ms').mean()
 
 # %% NCU steering angle
 ncu_prefix = 'ncu_log1/'
-df_log1_ncu = rb.topic2df(rosbag_path, '/waverunner/sys/log/log1_ncu', [], ncu_prefix)
+df_log1_ncu = rb.topic2df(rosbag_path, '/marv/sys/log/log1_ncu', [], ncu_prefix)
 df_plt[ncu_prefix + 'angle'] = df_log1_ncu[ncu_prefix + 'angle'].resample('40ms').mean()
 
 # %% Ekf Heading
@@ -110,7 +113,7 @@ df_imu['delta_angle_z'] = dict_value('z', df_imu['imu_data/delta_angle'])
 
 # %% Pose
 pose_prefix = 'pose/'
-df_pose = rb.topic2df(rosbag_path, '/waverunner/nav/sbg_pose', [], pose_prefix)
+df_pose = rb.topic2df(rosbag_path, '/marv/nav/sbg_pose', [], pose_prefix)
 df_pose[pose_prefix + 'pos'] = dict_value('position', df_pose['pose/pose'])
 df_pose[pose_prefix + 'pos_x'] = dict_value('x', df_pose[pose_prefix + 'pos'].apply(lambda x: vars(x)))
 df_pose[pose_prefix + 'pos_y'] = dict_value('y', df_pose[pose_prefix + 'pos'].apply(lambda x: vars(x)))
@@ -131,8 +134,8 @@ print(df_plt[100:-100].isna().sum()/df_plt[100:-100].count()*100)
 # df_ekf_nav.index.to_series().diff().astype('timedelta64[ms]').plot.hist()
 # %% Log marker start/stop generation
 log_m_prefix = 'log_m/'
-df_log_m = rb.topic2df(rosbag_path, '/waverunner/sys/status/logging_marker', [], log_m_prefix)
-df_log_m['log_m/current'] = df_log_m
+df_log_m = rb.topic2df(rosbag_path, '/marv/sys/status/logging_marker', [], log_m_prefix)
+df_log_m['log_m/current'] = df_log_m['log_m/data']
 df_log_m = df_log_m.drop(columns=['log_m/data'])
 df_log_m['log_m/shifted'] = df_log_m['log_m/current'].shift(1)
 df_log_m['log_m/start'] = df_log_m['log_m/current'] - df_log_m['log_m/shifted'] > 0
@@ -140,7 +143,7 @@ df_log_m['log_m/stop'] = df_log_m['log_m/current'] - df_log_m['log_m/shifted'] <
 df_plt['log_m/start'] = df_log_m['log_m/start'].loc[df_log_m['log_m/start'] == True].resample('40ms').mean()
 df_plt['log_m/stop'] = df_log_m['log_m/stop'].loc[df_log_m['log_m/stop'] == True].resample('40ms').mean()
 
-# merge into single start stop column
+# # merge into single start stop column
 df_plt['log_m/start'] = df_plt['log_m/start'].replace([1], ['log_start'])
 df_plt['log_m/stop'] = df_plt['log_m/stop'].replace([1], ['log_stop'])
 
@@ -246,14 +249,17 @@ import bokeh as bk
 import holoviews as hv
 import hvplot.xarray # noqa: adds hvplot method to xarray objects
 import rioxarray as rxr
+# import rasterio as rxr
+
 import panel as pn
 import datashader
 
-da = rxr.open_rasterio('geo-data/639_31_50_1971.tif', parse_coordinates=True)
+da = rxr.open_rasterio('geo-data/640_30_00_2005.tif', parse_coordinates=True)
 #da_lonlat = da.rio.reproject("EPSG:3006")   #corrects projection but still wrong coordinates
 da_lonlat = da.rio.reproject("WGS84")   #corrects projection but still wrong coordinates
 
 # define clipping reigion
+'''
 geometries = [
     {
         'type': 'Polygon',
@@ -264,7 +270,19 @@ geometries = [
             [11.86, 57.66]
         ]]
     }
+]'''
+geometries = [
+    {
+        'type': 'Polygon',
+        'coordinates': [[
+            [11.65, 57.72],
+            [11.65, 57.73],
+            [11.67, 57.73],
+            [11.67, 57.72]
+        ]]
+    }
 ]
+
 
 clipped = da_lonlat.rio.clip(geometries)
 
@@ -290,11 +308,11 @@ df_sliced.to_csv('output/' + name + time_string + '.csv')
 
 # %% 
 ppdu1= 'pdu-log1/'
-df_pdu_log1 = rb.topic2df(rosbag_path, '/waverunner/sys/log/log1_pdu', prefix = ppdu1)
+df_pdu_log1 = rb.topic2df(rosbag_path, '/marv/sys/log/log1_pdu', prefix = ppdu1)
 #df_pdu_log1.resample('1s').mean().plot()
 
 plogm = 'log-mark/'
-df_log_mark = rb.topic2df(rosbag_path, '/waverunner/sys/status/logging_marker', prefix = plogm)
+df_log_mark = rb.topic2df(rosbag_path, '/marv/sys/status/logging_marker', prefix = plogm)
 
 df_merge = pd.merge_asof(df_pdu_log1.reset_index(), df_log_mark.reset_index(), on='timestamp', tolerance=pd.Timedelta('1ms'))
 df_merge[plogm + 'data'] = (df_merge[plogm + 'data']*1000).interpolate(method = 'pad')

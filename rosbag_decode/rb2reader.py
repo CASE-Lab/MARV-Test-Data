@@ -49,32 +49,34 @@ def topic2df(rosbag_path, topic_name, key_ignore_list=[], prefix=None) -> pd.Dat
         msg_keys = []
         msg_values_list = []
         once = True
-        if(not bool(list(reader.messages([topic_name])))):
-            print("Error: No messages on topic", topic_name)
-            return None
-        for topic, msgtype, timestamp, rawdata in reader.messages([topic_name]):
-            msg = deserialize_cdr(rawdata, msgtype)
-            msg_vars = vars(msg)
+        # if(not bool(list(reader.messages([topic_name])))):
+            # print("Error: No messages on topic", topic_name)
+            # return None
+        # for topic, msgtype, timestamp, rawdata in reader.messages([topic_name]):
+        for connection, timestamp, rawdata in reader.messages():
+            if connection.topic == topic_name:
+                msg = deserialize_cdr(rawdata, connection.msgtype)
+                msg_vars = vars(msg)
 
-            # create list of message keys:
-            if once:
-                once = False
-                msg_keys = list(msg_vars.keys())
-                for ignore_key in key_ignore_list:
-                    try:
-                        msg_keys.remove(ignore_key)
-                    except:
-                        print("Key", ignore_key, "not in msg_keys")
+                # create list of message keys:
+                if once:
+                    once = False
+                    msg_keys = list(msg_vars.keys())
+                    for ignore_key in key_ignore_list:
+                        try:
+                            msg_keys.remove(ignore_key)
+                        except:
+                            print("Key", ignore_key, "not in msg_keys")
 
-            msg_values = []
-            for msg_key in msg_keys:
-                #check for nested message defenition (only single depth for now)
-                if hasattr(msg_vars[msg_key], '__dict__'):
-                    msg_values.append(msg_vars[msg_key].__dict__)
-                else:
-                    msg_values.append(msg_vars[msg_key])
+                msg_values = []
+                for msg_key in msg_keys:
+                    #check for nested message defenition (only single depth for now)
+                    if hasattr(msg_vars[msg_key], '__dict__'):
+                        msg_values.append(msg_vars[msg_key].__dict__)
+                    else:
+                        msg_values.append(msg_vars[msg_key])
 
-            msg_values_list.append(msg_values + [timestamp])
+                msg_values_list.append(msg_values + [timestamp])
         #add prefix
         if prefix:
             msg_keys = [prefix + key for key in msg_keys]
