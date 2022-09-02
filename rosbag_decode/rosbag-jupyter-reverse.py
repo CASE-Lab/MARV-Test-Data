@@ -112,11 +112,18 @@ df_ekf_euler[head_prefix + 'heading'] = np.rad2deg(dict_value('z', df_ekf_euler[
 df_plt[head_prefix + 'heading'] = df_ekf_euler[head_prefix + 'heading'].resample('40ms').mean()
 
 
-# %% Yaw rate
+# %% Yaw rate and XY acceleration
 imu_prefix = 'imu_data/'
 df_imu = rb.topic2df(rosbag_path, '/sbg/imu_data', ['header'], imu_prefix)
-df_imu['gyro_z'] = dict_value('z', df_imu['imu_data/gyro'])
-df_imu['delta_angle_z'] = dict_value('z', df_imu['imu_data/delta_angle'])
+
+#df_imu['delta_angle_z'] = dict_value('z', df_imu['imu_data/delta_angle'])
+
+df_imu[imu_prefix + 'gyro_z'] = dict_value('z', df_imu['imu_data/gyro'])
+df_imu[imu_prefix + 'accel_x'] = dict_value('x', df_imu[imu_prefix + 'accel'])
+df_imu[imu_prefix + 'accel_y'] = dict_value('y', df_imu[imu_prefix + 'accel'])
+df_plt[imu_prefix + 'gyro_z'] = df_imu[imu_prefix + 'gyro_z'].resample('40ms').mean()
+df_plt[imu_prefix + 'accel_x'] = df_imu[imu_prefix + 'accel_x'].resample('40ms').mean()
+df_plt[imu_prefix + 'accel_y'] = df_imu[imu_prefix + 'accel_y'].resample('40ms').mean()
 
 
 # %% Pose
@@ -128,16 +135,14 @@ df_pose[pose_prefix + 'pos_y'] = dict_value('y', df_pose[pose_prefix + 'pos'].ap
 df_plt[pose_prefix + 'pos_x'] = df_pose[pose_prefix + 'pos_x'].resample('40ms').mean()
 df_plt[pose_prefix + 'pos_y'] = df_pose[pose_prefix + 'pos_y'].resample('40ms').mean()
 
-
-# %% Acceleration
-nav_prefix = 'sbg_acceleration/'
-df_nav = rb.topic2df(rosbag_path, '/marv/nav/sbg_acceleration', [], nav_prefix)
-
-#df_nav = df_nav.drop(columns=[nav_prefix + 'sbg_acceleration/data'])
-df_plt[nav_prefix + 'x'] = df_nav[nav_prefix + 'x'].resample('40ms').mean()
-df_plt[nav_prefix + 'y'] = df_nav[nav_prefix + 'y'].resample('40ms').mean()
-df_plt[nav_prefix + 'z'] = df_nav[nav_prefix + 'z'].resample('40ms').mean()
-
+'''
+# Acceleration
+acc_prefix = 'sbg_imu/'
+df_nav = rb.topic2df(rosbag_path, '/marv/nav/sbg_acceleration', [], acc_prefix)
+df_plt[acc_prefix + 'x'] = df_nav[acc_prefix + 'x'].resample('40ms').mean()
+df_plt[acc_prefix + 'y'] = df_nav[acc_prefix + 'y'].resample('40ms').mean()
+#df_plt[acc_prefix + 'z'] = df_nav[acc_prefix + 'z'].resample('40ms').mean()
+'''
 
 # %% Check for NaN values and fill
 print('Percentage of Nan Values before interpolation:')
@@ -335,9 +340,10 @@ min_dt = pd.to_datetime(str(min(selection_linker.selection_expr.ops[0]['args'][0
 df_sliced = df_plt[min_dt : max_dt]
 
 time_string = str(min_dt.minute) + '_' + str(min_dt.second) + '-' + str(max_dt.minute) + '_' + str(max_dt.second)
-name = 'heading-test-0720 '
+name = 'reverse_test_marker17'
 
-df_sliced.to_csv('output/' + name + time_string + '.csv')
+#df_sliced.to_csv('output/' + name + time_string + '.csv')
+df_sliced.to_csv('output/' + name + '.csv')
 
 
 # %% 
